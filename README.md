@@ -1,16 +1,9 @@
 # too_see
 
-A new Flutter project.
-
-## Getting Started
-
 This project is a starting point for a Flutter application.
+ Getting started to use this project, please follow the steps below :
+ 1- creat an emulator in vs code or use your mobile as a emulator.
+ 2- run a code and And enjoy our app experience
 
-A few resources to get you started if this is your first Flutter project:
+Note: To better simulate the blind situation when using a mobile phone, it is preferable to use TalkBack or similar 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
