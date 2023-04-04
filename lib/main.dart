@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:too_see/pages/Verify-email.dart';
+import 'package:too_see/pages/done_resetPassword.dart';
 import 'package:too_see/pages/forgot_password.dart';
 import 'package:too_see/pages/pageView.dart';
 import 'package:too_see/pages/reset_password.dart';
+
 
 
 
@@ -19,7 +21,7 @@ class tooSee extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: pageView(),
+      home: doneReset(),
     );
   }
 }

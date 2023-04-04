@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/button.dart';
 import '../widgets/textfield.dart';
@@ -16,17 +17,15 @@ class ForgotPassword extends StatelessWidget {
             color: Colors.white,
             child: Column(
               children: [
-                Image(
-                      image: AssetImage("images/shape.png"),
-                    ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 120),
-                  child: Image(
-                    height: 100,
-                    width: 100,
-                    image: AssetImage("images/scroll.png"),
-                  ),
-                ),
+                Stack(
+                  children: [ Image(
+                        image: AssetImage("images/shape.png"),
+                      ),
+                
+                 Padding(
+                   padding: const EdgeInsets.only(top:70,left: 40,right: 40,),
+                   child: SvgPicture.asset("images/Forgot.svg",),
+                 ),],),
                 Text(
                     "Forgot\nPassword?",
                     style: TextStyle(fontSize: 35, 
@@ -45,7 +44,7 @@ class ForgotPassword extends StatelessWidget {
                     ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 30,horizontal: 45),
+                  padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 45),
                   child: textfield(
                       hintText: '@ Email ID',
                     ),

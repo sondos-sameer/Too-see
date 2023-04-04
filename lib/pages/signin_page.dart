@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:too_see/pages/forgot_password.dart';
 import 'package:too_see/widgets/checkBox.dart';
 import '../widgets/button.dart';
 import '../widgets/textfield.dart';
@@ -111,6 +112,19 @@ class signinPage extends StatelessWidget {
                   height: 28,
                 ),
                 button(text: 'Sign in',),
+                GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return ForgotPassword();
+                        },),);
+                      },
+                  child: Text(
+                        "Forgot password?",
+                        style: TextStyle(
+                          fontFamily: 'Notosans-Bold',
+                          fontSize: 14,
+                        ),),
+                ),
                 SizedBox(
                   height: 37.6,
                 ),

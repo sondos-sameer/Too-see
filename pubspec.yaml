@@ -99,6 +99,11 @@ flutter:
     - images/tree-example.jpg #delete
     - images/cat-example.jfif #delete
     - images/car-example.jfif #delete
+    - images/doneReset.svg
+    - images/Forgot.svg
+    - images/reset.svg
+    - images/verify .svg
+
 
 
 

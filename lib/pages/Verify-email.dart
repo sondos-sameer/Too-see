@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-
+import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/button.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -17,17 +16,12 @@ TextEditingController controller= TextEditingController();
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                      image: AssetImage("images/shape.png"),
-                    ),
+                
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 120),
-                  child: Image(
-                    height: 100,
-                    width: 100,
-                    image: AssetImage("images/scroll.png"),
-                  ),
+                  padding: const EdgeInsets.only(left:50,right: 50,top: 60,),
+                  child: SvgPicture.asset("images/verify .svg",),
                 ),
+               
                 Text(
                     "Verify\nyour email",
                     style: TextStyle(fontSize: 35, 
@@ -60,10 +54,10 @@ TextEditingController controller= TextEditingController();
                   fieldWidth: 50,
                   borderRadius: BorderRadius.circular(15),
                   borderWidth: 0.5,
-                  inactiveColor: Colors.grey,
-                  activeColor: Colors.grey,
+                  inactiveColor: Colors.black,
+                  activeColor: Colors.black,
                   selectedFillColor:Color(0xffE9EFFD),
-                  selectedColor:Colors.white,
+                  selectedColor:Colors.black,
                   inactiveFillColor: Colors.white,
                   activeFillColor: Color(0xffC4EEF2),
                   

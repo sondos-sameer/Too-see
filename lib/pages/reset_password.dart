@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:too_see/widgets/button.dart';
 
 
@@ -15,17 +16,15 @@ class ResetPassword extends StatelessWidget {
             color: Colors.white,
             child: Column(
               children: [
-                Image(
-                      image: AssetImage("images/shape.png"),
-                    ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 120),
-                  child: Image(
-                    height: 100,
-                    width: 100,
-                    image: AssetImage("images/scroll.png"),
-                  ),
-                ),
+                Stack(
+                  children: [ Image(
+                        image: AssetImage("images/shape.png"),
+                      ),
+                
+                 Padding(
+                   padding: const EdgeInsets.only(top:70,left: 40,right: 40,),
+                   child: SvgPicture.asset("images/reset.svg",),
+                 ),],),
                 Text(
                     "Reset\nPassword ?",
                     style: TextStyle(fontSize: 35, 
