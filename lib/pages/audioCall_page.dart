@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:too_see/widgets/audioCallBar.dart';
+import 'package:too_see/widgets/vedioCallBar.dart';
 
-
-import 'package:too_see/widgets/imageBubble.dart';
-
-import '../widgets/chatBubble.dart';
 import 'provider/language.dart';
 
-class sightChat extends StatelessWidget {
-   sightChat({super.key});
+
+
+class audioCall extends StatelessWidget {
+   audioCall({super.key});
+
   Language _language = Language();
+
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
         body: Container(
       color: Color(0xffC4EEF2),
       child: Container(
@@ -45,47 +48,34 @@ class sightChat extends StatelessWidget {
             Container(
               width: double.infinity,
               margin: const EdgeInsets.only(top: 59),
-              color: Colors.white,
-               child:Column(
-        children: [
-          Expanded(child: ListView(
-            children: [
-              chatBubble('how are you?'),
-              imageBubble('images/picInChat1.png'),
+              color: Color(0xffE8E7E7),
+              child: Column(
+                children: [
+                  SizedBox(
+                        height: 130,
+                  ),
+                  CircleAvatar(
+                            radius: 70,
+                            backgroundImage: AssetImage('images/caller.jpg'),
+                            ),
+                  SizedBox(
+                        height: 10,
+                  ),
+                  Text('caller name',style: TextStyle(fontSize: 20, fontFamily: 'cairo-Bold'),),
+                  Text('1:33:00',style: TextStyle(fontSize: 20, fontFamily: 'cairo-Bold'),),
+                  SizedBox(
+                        height: 130,
+                  ),
+                  audioCallBar(),
+      
+                ],
+              ),
               
-            ],
-            
-          )),
-          
-          TextField(
-            decoration: InputDecoration(
-              prefixIcon: 
-              
-          Icon(
-          Icons.keyboard_voice_outlined,
-          color: Color(0xff699EBF),
-          size: 30,
-          ),
-              suffixIcon:Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: CircleAvatar(
-                        radius: 20,
-                        backgroundColor: Color(0xff699EBF),
-                        child: Icon(Icons.arrow_forward,
-                color:Colors.white,),),
-              ), 
-              enabledBorder:OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Color(0xff699EBF))),
-            ),
-          )
-        ],
-      ),),],),
+               ),],),
            
             ),
           
         ),
       );
-    
   }
 }

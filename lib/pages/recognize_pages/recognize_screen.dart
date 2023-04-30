@@ -1,19 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:too_see/pages/photos_pages.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:too_see/pages/recognize_pages/frontFace_screen.dart';
+import 'package:too_see/pages/voice_pages/hear_sound.dart';
 
-import 'provider/language.dart';
 
-class ScrollPage extends StatelessWidget {
-   ScrollPage({super.key});
-Language _language = Language();
+class recognizeFace extends StatelessWidget {
+  const recognizeFace({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body:  GestureDetector(
-        onTap: (){
+              onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return PhotosPage();
+                            return frontFace();
                         },),);
                       },
         child: Container(
@@ -23,20 +23,16 @@ Language _language = Language();
               Image(
                     image: AssetImage("images/shape.png"),
                   ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 120),
-                child: Image(
-                  image: AssetImage("images/scroll.png"),
-                ),
-              ),
+              SvgPicture.asset("images/recognize.svg",),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                    _language.tScroll(),
+                    'Recognize your face',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 30, 
                     fontFamily: 'cairo-Bold',
-                    color: Color(0xff052159),),
+                    color: Color(0xff052159),
+                    ),
                     
                   ),
               ),

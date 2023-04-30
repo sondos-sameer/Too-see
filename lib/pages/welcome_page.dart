@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:too_see/pages/pageView.dart';
+import 'package:too_see/pages/recognize_pages/recognize_screen.dart';
 import 'package:too_see/pages/signin_page.dart';
+import 'package:too_see/widgets/smallButton.dart';
 
 
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
    WelcomePage({super.key});
 
+  @override
+  State<WelcomePage> createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage> {
+
+  savePref(String userType) async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+   await preferences.setString('userType', userType);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,58 +54,24 @@ class WelcomePage extends StatelessWidget {
                 ),
             GestureDetector(
               onTap: (){
-                         
+                        savePref('Blind');
                         Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return pageView();
+                            return recognizeFace();
                         },),);
                       },
-              child: Container(
-                      height: 111,
-                      width: 217,
-                      child: Center(
-                        child: Text(
-                          'Blind',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'cairo-Bold',
-                            fontSize: 39,
-                          ),
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Color(0xff052159),
-                        borderRadius: BorderRadius.circular(42),
-                      ),
-                    ),
+              child: smallButton(text:'Blind'),
             ),
                   SizedBox(
                   height: 59,
                 ),
                 GestureDetector(
                       onTap: (){
-                        
+                        savePref('Sight');
                         Navigator.push(context, MaterialPageRoute(builder: (context){
                             return pageView();
                         },),);
                       },
-           child: Container(
-                    height: 111,
-                    width: 217,
-                    child: Center(
-                      child: Text(
-                        'sight',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'cairo-Bold',
-                          fontSize: 39,
-                        ),
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0xff16558C),
-                      borderRadius: BorderRadius.circular(42),
-                    ),
-                  ), ),     
+           child: smallButton(text: 'Sight',) ),     
           ],
         ),
       ),),

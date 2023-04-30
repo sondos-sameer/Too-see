@@ -1,14 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:too_see/pages/blindChat_page.dart';
 import 'package:too_see/pages/sightChat_page.dart';
 import 'package:too_see/widgets/chatUser.dart';
 
+import 'provider/language.dart';
 
 
 
-class chatPeople extends StatelessWidget {
-  const chatPeople({super.key});
+
+class chatPeople extends StatefulWidget {
+  chatPeople({super.key});
 
   @override
+  State<chatPeople> createState() => _chatPeopleState();
+}
+
+class _chatPeopleState extends State<chatPeople> {
+  Language _language = Language();
+
+  var userType;
+
+  @override
+
+    getPref() async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    userType = preferences.getString('userType');
+  }
+    void initState(){
+      getPref();
+    super.initState();
+    
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
@@ -27,7 +51,7 @@ class chatPeople extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Chat',
+                    _language.tCHAT(),
                     style: TextStyle(
                       fontSize: 25,
                       fontFamily: 'cairo-Bold',
@@ -47,15 +71,24 @@ class chatPeople extends StatelessWidget {
               color: Colors.white,
                child: GestureDetector(
                 onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return sightChat();
-                          },),);
+                          if (userType=='Blind'){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return blindChat();
+                        },),);}
+                         else{
+                           Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return sightChat();
+                        },),);
+                         }
+                         
                         },
-                 child: ListView.builder(
-                  itemBuilder: ((context, index) {
-                   return  const chatUser();
-                   
-                 }),),
+                 child:Expanded(
+                   child: ListView(
+                    children: [
+                      chatUser(),
+                    ],
+                   ),
+                 )
                )
            
             ),

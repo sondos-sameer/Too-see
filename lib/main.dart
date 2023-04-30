@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:too_see/pages/Verify-email.dart';
-import 'package:too_see/pages/done_resetPassword.dart';
-import 'package:too_see/pages/forgot_password.dart';
+
+import 'package:too_see/pages/blindChat_page.dart';
+import 'package:too_see/pages/chatPeople_page.dart';
 import 'package:too_see/pages/pageView.dart';
-import 'package:too_see/pages/reset_password.dart';
+import 'package:too_see/pages/recognize_pages/endRecognize_screen.dart';
+import 'package:too_see/pages/recognize_pages/frontFace_screen.dart';
+import 'package:too_see/pages/recognize_pages/recognize_screen.dart';
+import 'package:too_see/pages/sightChat_page.dart';
+import 'package:too_see/pages/voice_pages/hear_sound.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:too_see/pages/voice_pages/voice_page1.dart';
+import 'package:too_see/pages/welcome_page.dart';
 
 
-
-
-
+String? language ='EN';
 
  void main() {
-  runApp(tooSee());
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.getInstance()..then((instance) {
+    language = instance.getString('language');
+    runApp(tooSee());
+  });
+  
+  
 }
 
 class tooSee extends StatelessWidget {
@@ -21,7 +32,7 @@ class tooSee extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: doneReset(),
+      home: voice_page1(),
     );
   }
 }

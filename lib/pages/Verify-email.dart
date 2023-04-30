@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:too_see/widgets/dialog.dart';
 import '../widgets/button.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 
 class verifyEmail extends StatelessWidget {
    verifyEmail({super.key});
@@ -73,9 +75,17 @@ TextEditingController controller= TextEditingController();
                 SizedBox(
                   height: 15,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 45,right: 45,bottom: 20),
-                  child: button(text: 'Conform',),
+                GestureDetector(
+                  onTap: (){
+                    showDialog(context: context, builder: (BuildContext){
+                      return CustomDialog();
+                    },);
+                      
+                      },
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 45,right: 45,bottom: 20),
+                    child: button(text: 'Conform',),
+                  ),
                 ),
                 
               ],

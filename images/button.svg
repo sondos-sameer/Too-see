@@ -1,0 +1,14 @@
+<svg id="capture_photo" data-name="capture photo" xmlns="http://www.w3.org/2000/svg" width="146" height="146" viewBox="0 0 146 146">
+  <g id="Circle_Button" data-name="Circle Button">
+    <rect id="Area" width="146" height="146" rx="73" fill="#052159"/>
+    <g id="Icon" transform="translate(48 48)">
+      <g id="Area-2" data-name="Area" transform="translate(0 0)" fill="none" stroke="#fff" stroke-width="7" opacity="0">
+        <rect width="50" height="50" stroke="none"/>
+        <rect x="3.5" y="3.5" width="43" height="43" fill="none"/>
+      </g>
+      <g id="Icon-2" data-name="Icon" transform="translate(-35 -35)">
+        <circle id="cdf78fc0-21e1-4cb4-9e86-5eef8e64d9e1" cx="60" cy="60" r="60" transform="translate(0 0)" fill="#052159" stroke="#fcfcfc" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+      </g>
+    </g>
+  </g>
+</svg>

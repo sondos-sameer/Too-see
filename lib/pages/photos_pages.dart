@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import 'provider/language.dart';
+
 class PhotosPage extends StatefulWidget {
   const PhotosPage({super.key});
 
@@ -12,7 +14,7 @@ class _PhotosPageState extends State<PhotosPage> {
 
   var TextList = ['Tree','Cat','Car'];
   var picList =['images/tree-example.jpg','images/car-example.jfif','images/cat-example.jfif',];
-
+Language _language = Language();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +34,7 @@ class _PhotosPageState extends State<PhotosPage> {
                         
                            Text(
                             
-                            'Gallery',
+                            _language.tGallery(),
                             style: TextStyle(
                               fontSize: 25,
                               fontFamily: 'cairo-Bold',

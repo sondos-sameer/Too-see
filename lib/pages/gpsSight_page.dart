@@ -15,8 +15,8 @@ final Completer<GoogleMapController>_controller=
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.4746,
   );
-class GpsPage extends StatelessWidget {
-  GpsPage({super.key});
+class GpsSightPage extends StatelessWidget {
+ GpsSightPage({super.key});
 
   Language _language = Language();
 
@@ -43,7 +43,7 @@ class GpsPage extends StatelessWidget {
                           
                              Text(
                               
-                              _language.tGPS() ,
+                              _language.tGPS(),
                               style: TextStyle(
                                 fontSize: 25,
                                 fontFamily: 'cairo-Bold',
@@ -67,53 +67,7 @@ class GpsPage extends StatelessWidget {
         
       ),
             
-                SizedBox(
-                  height: 10,
-                  
-                ),
-                
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 22),
-                  child: Container(
-                    height: 171,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                      color: Color(0xff699EBF).withOpacity(0.8),
-                    ),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 17,
-                        ),
-                        Text(
-                          _language.tsend(),
-                          style: TextStyle(
-                              fontFamily: 'Notosans-semiBold',
-                              fontSize: 16,
-                              color: Color(0xfffFFFFFF)),
-                        ),
-                        SizedBox(
-                          height: 5,
-                          
-                        ),
-                        Expanded(
-                          child:  ListView.builder(
-      
-                  scrollDirection: Axis.horizontal,
-                  
-                  itemBuilder: ((context, index) {
-                   return Padding(
-                     padding: const EdgeInsets.all(5.0),
-                     child: const locationUser(),
-                   );
-                     
-                                       }),),
-                        )
-                        
-                      ],
-                    ),
-                  ),
-                ),
+               
               ],
             ),
           ),

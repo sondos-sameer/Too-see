@@ -2,12 +2,17 @@ import 'package:chat_bubbles/bubbles/bubble_special_three.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:too_see/widgets/chatOption.dart';
+import 'package:too_see/widgets/blindChatBar.dart';
+
+import 'package:too_see/widgets/imageBubble.dart';
+import 'package:too_see/widgets/voiceBubble.dart';
 
 import '../widgets/chatBubble.dart';
+import 'provider/language.dart';
 
 class blindChat extends StatelessWidget {
-  const blindChat({super.key});
+   blindChat({super.key});
+  Language _language = Language();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class blindChat extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Chat',
+                      _language.tCHAT(),
                       style: TextStyle(
                         fontSize: 25,
                         fontFamily: 'cairo-Bold',
@@ -43,45 +48,28 @@ class blindChat extends StatelessWidget {
                 ),
               ),
               Container(
+                
                 width: double.infinity,
                 margin: const EdgeInsets.only(top: 59),
                 color: Colors.white,
-                child: Column(
+                child: Stack(
+                  
                   children: [
+                    
                     Expanded(
-                      child: ListView.builder(
-                        itemBuilder: (context, index) => ChatBubbleForFriend(),
+                      child: ListView(
+                        children: [
+                          imgBubbleForFriend('images/picInChat1.png'),
+                          ChatBubbleForFriend(),
+                          imageBubble('images/cat-example.jfif'),
+                          
+                          
+                          
+                        ],
                       ),
                     ),
-                    Container(
-                      height: 100,
-                      color: Color(0xff699EBF),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Spacer(),
-                            chatOption(
-                              icon: Icons.keyboard_voice_outlined,
-                              optionName: 'Recorde',
-                            ),
-                            Spacer(),
-                            chatOption(
-                              icon: Icons.location_on_outlined,
-                              optionName: 'Location',
-                            ),
-                            Spacer(),
-                            chatOption(
-                              icon: Icons.image_outlined,
-                              optionName: 'Gallery',
-                            ),
-                            Spacer(),
-                            chatOption(
-                              icon: Icons.videocam_outlined,
-                              optionName: 'Video',
-                            ),
-                            Spacer(),
-                          ]),
-                    ),
+                    
+                    blindChatBar(),
                   ],
                 ),
               ),
